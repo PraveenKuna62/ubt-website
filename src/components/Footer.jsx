@@ -9,7 +9,7 @@ const Footer = () => {
         <div style={styles.topRow}>
           <div style={styles.brandCol}>
             <div style={styles.brandGroup}>
-              <img src="/UBT_Logo.png" alt="UBT Logo" style={styles.logo} />
+              <npm img src={`${import.meta.env.BASE_URL}UBT_Logo.png`} alt="UBT Logo" style={styles.logo} />
               <div style={styles.brandText}>
                 <span style={{ color: '#ffffff', fontWeight: '800', fontSize: '1.05rem', letterSpacing: '0.05em' }}>
                   UNIVERSE

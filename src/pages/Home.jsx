@@ -117,7 +117,7 @@ const Home = () => {
             <div style={styles.posterImageCol}>
               <div style={styles.posterFrame}>
                 <img
-                  src="/UBT_Poster.png"
+                  src={`${import.meta.env.BASE_URL}UBT_Poster.png`}
                   alt="UniverseBeginTech Official Launch Poster"
                   style={styles.posterImg}
                   onError={(e) => {

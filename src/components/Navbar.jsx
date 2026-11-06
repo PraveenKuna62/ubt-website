@@ -16,7 +16,7 @@ const Navbar = () => {
     <header style={styles.header}>
       <div style={styles.container}>
         <Link to="/" style={styles.brandLink}>
-          <img src="/UBT_Logo.png" alt="UBT Logo" style={styles.logo} />
+          <img src={`${import.meta.env.BASE_URL}UBT_Logo.png`} alt="UBT Logo" style={styles.logo} />
           <div style={styles.brandText}>
             <span style={styles.brandPrimary}>UNIVERSE</span>
             <span style={styles.brandSecondary}>BEGINTECH</span>
