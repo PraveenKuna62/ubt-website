@@ -3,22 +3,23 @@ import { useForm, ValidationError } from '@formspree/react';
 import { FaEnvelope, FaInstagram } from 'react-icons/fa';
 
 const Contact = () => {
-  const [state, handleSubmit] = useForm('xoeebopr');
+  const [inquiryState, handleInquirySubmit] = useForm('xoeebopr');
+  const [feedbackState, handleFeedbackSubmit] = useForm('xoeebopr');
 
   return (
     <div style={styles.page}>
       {/* Header */}
       <section style={styles.headerSection}>
         <div style={styles.container}>
-          <span style={styles.headerTag}>INQUIRIES</span>
-          <h1 style={styles.headerTitle}>Partner With UniverseBeginTech</h1>
+          <span style={styles.headerTag}>INQUIRIES & ENGAGEMENT</span>
+          <h1 style={styles.headerTitle}>Connect With UniverseBeginTech</h1>
           <p style={styles.headerSubtitle}>
-            Bring industry-grade bootcamps and GenAI & Tech Solutions.
+            Bring industry-grade bootcamps, submit inquiries, or share your orientation feedback.
           </p>
         </div>
       </section>
 
-      {/* Form & Contact Details Section */}
+      {/* Main Section: Direct Info + Inquiry Form */}
       <section style={styles.contentSection}>
         <div style={styles.container}>
           <div style={styles.contactGrid}>
@@ -56,15 +57,15 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Formspree Form Col */}
+            {/* Form 1: Inquiry Form */}
             <div style={styles.formCol}>
               <div style={styles.formCard}>
-                <h3 style={styles.formHeading}>Feedback Form</h3>
+                <h3 style={styles.formHeading}>Inquiry Form</h3>
                 <p style={styles.formSub}>
-                  We value your feedback please share your comments below.
+                  Fill out your details below to request a detailed syllabus and project proposal.
                 </p>
 
-                {state.succeeded && (
+                {inquiryState.succeeded && (
                   <div
                     style={{
                       ...styles.statusBox,
@@ -73,11 +74,11 @@ const Contact = () => {
                       color: '#4ade80',
                     }}
                   >
-                    Thank you for your feedback! We appreciate you taking the time to share your thoughts.
+                    Thank you for reaching out! Our team will contact you shortly.
                   </div>
                 )}
 
-                {state.errors && state.errors.length > 0 && (
+                {inquiryState.errors && inquiryState.errors.length > 0 && (
                   <div
                     style={{
                       ...styles.statusBox,
@@ -86,50 +87,187 @@ const Contact = () => {
                       color: '#f87171',
                     }}
                   >
-                    There was a problem submitting your feedback. Please try again.
+                    There was a problem submitting your inquiry. Please check the fields and try again.
                   </div>
                 )}
 
-                <form onSubmit={handleSubmit} style={styles.form}>
-                  <div style={styles.formGroup}>
-                    <label style={styles.label}>Name *</label>
-                    <input
-                      type="text"
-                      name="name"
-                      id="name"
-                      required
-                      placeholder="Your Name"
-                      style={styles.input}
-                    />
-                    <ValidationError prefix="Name" field="name" errors={state.errors} style={styles.errorText} />
+                <form onSubmit={handleInquirySubmit} style={styles.form}>
+                  <div style={styles.formRow}>
+                    <div style={styles.formGroup}>
+                      <label style={styles.label}>Name *</label>
+                      <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        required
+                        placeholder="Full Name"
+                        style={styles.input}
+                      />
+                      <ValidationError prefix="Name" field="name" errors={inquiryState.errors} style={styles.errorText} />
+                    </div>
+                    <div style={styles.formGroup}>
+                      <label style={styles.label}>Designation / Role</label>
+                      <input
+                        type="text"
+                        name="role"
+                        id="role"
+                        placeholder="Role"
+                        style={styles.input}
+                      />
+                      <ValidationError prefix="Role" field="role" errors={inquiryState.errors} style={styles.errorText} />
+                    </div>
+                  </div>
+
+                  <div style={styles.formRow}>
+                    <div style={styles.formGroup}>
+                      <label style={styles.label}>Email *</label>
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        required
+                        placeholder="abc@gmail.com"
+                        style={styles.input}
+                      />
+                      <ValidationError prefix="Email" field="email" errors={inquiryState.errors} style={styles.errorText} />
+                    </div>
+                    <div style={styles.formGroup}>
+                      <label style={styles.label}>Contact Phone *</label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        id="phone"
+                        required
+                        placeholder="9876543210"
+                        style={styles.input}
+                      />
+                      <ValidationError prefix="Phone" field="phone" errors={inquiryState.errors} style={styles.errorText} />
+                    </div>
                   </div>
 
                   <div style={styles.formGroup}>
-                    <label style={styles.label}>Comments / Feedback *</label>
+                    <label style={styles.label}>Program of Interest</label>
+                    <select
+                      name="interest"
+                      id="interest"
+                      defaultValue="GenAI & Tech Bootcamps"
+                      style={styles.select}
+                    >
+                      <option value="GenAI & Tech Bootcamps">GenAI & Tech Bootcamps</option>
+                      <option value="Projects">Projects</option>
+                    </select>
+                    <ValidationError prefix="Interest" field="interest" errors={inquiryState.errors} style={styles.errorText} />
+                  </div>
+
+                  <div style={styles.formGroup}>
+                    <label style={styles.label}>Additional Requirements</label>
                     <textarea
-                      name="comments"
-                      id="comments"
-                      required
-                      rows="5"
-                      placeholder="Share your thoughts, suggestions, or comments here..."
+                      name="message"
+                      id="message"
+                      rows="4"
+                      placeholder="Specify preferred dates, target branch, or specific learning outcomes..."
                       style={styles.textarea}
                     ></textarea>
-                    <ValidationError prefix="Comments" field="comments" errors={state.errors} style={styles.errorText} />
+                    <ValidationError prefix="Message" field="message" errors={inquiryState.errors} style={styles.errorText} />
                   </div>
 
                   <button
                     type="submit"
-                    disabled={state.submitting}
+                    disabled={inquiryState.submitting}
                     style={styles.submitBtn}
                   >
-                    {state.submitting ? 'Submitting...' : 'Submit Feedback'}
+                    {inquiryState.submitting ? 'Submitting Inquiry...' : 'Submit Inquiry'}
                   </button>
 
                   <p style={styles.formFooterNote}>
-                    🔒 Direct submission securely handled via Formspree.
+                    🔒 Direct submission securely handled via Formspree. Your information remains strictly confidential.
                   </p>
                 </form>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Form 2: Feedback Form for Orientation & Student Engagement */}
+      <section style={styles.feedbackSection}>
+        <div style={styles.container}>
+          <div style={styles.feedbackWrapper}>
+            <div style={styles.feedbackCard}>
+              <div style={styles.feedbackHeader}>
+                <span style={styles.feedbackTag}>STUDENT ENGAGEMENT</span>
+                <h2 style={styles.feedbackHeading}>Feedback Form</h2>
+                <p style={styles.feedbackSub}>
+                  Attending our orientation session? We’d love to hear your feedback or thoughts! Simply share your name and comments below.
+                </p>
+              </div>
+
+              {feedbackState.succeeded && (
+                <div
+                  style={{
+                    ...styles.statusBox,
+                    backgroundColor: 'rgba(34, 197, 94, 0.15)',
+                    borderColor: '#22c55e',
+                    color: '#4ade80',
+                  }}
+                >
+                  🎉 Thank you for your feedback! We appreciate you taking the time to engage with us.
+                </div>
+              )}
+
+              {feedbackState.errors && feedbackState.errors.length > 0 && (
+                <div
+                  style={{
+                    ...styles.statusBox,
+                    backgroundColor: 'rgba(239, 68, 68, 0.15)',
+                    borderColor: '#ef4444',
+                    color: '#f87171',
+                  }}
+                >
+                  There was a problem submitting your feedback. Please try again.
+                </div>
+              )}
+
+              <form onSubmit={handleFeedbackSubmit} style={styles.form}>
+                <input type="hidden" name="_subject" value="Student Orientation Feedback" />
+                <div style={styles.formGroup}>
+                  <label style={styles.label}>Name *</label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="feedback-name"
+                    required
+                    placeholder="Enter your name"
+                    style={styles.input}
+                  />
+                  <ValidationError prefix="Name" field="name" errors={feedbackState.errors} style={styles.errorText} />
+                </div>
+
+                <div style={styles.formGroup}>
+                  <label style={styles.label}>Comments / Thoughts *</label>
+                  <textarea
+                    name="comments"
+                    id="feedback-comments"
+                    required
+                    rows="5"
+                    placeholder="Write your comments, orientation feedback, or questions here..."
+                    style={styles.textarea}
+                  ></textarea>
+                  <ValidationError prefix="Comments" field="comments" errors={feedbackState.errors} style={styles.errorText} />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={feedbackState.submitting}
+                  style={styles.submitBtn}
+                >
+                  {feedbackState.submitting ? 'Submitting Feedback...' : 'Submit Feedback'}
+                </button>
+
+                <p style={styles.formFooterNote}>
+                  🔒 Fast & direct submission. No registration required.
+                </p>
+              </form>
             </div>
           </div>
         </div>
@@ -173,7 +311,7 @@ const styles = {
     margin: '0 auto',
   },
   contentSection: {
-    padding: '4rem 0',
+    padding: '4rem 0 2rem 0',
   },
   contactGrid: {
     display: 'grid',
@@ -240,6 +378,44 @@ const styles = {
     color: '#94a3b8',
     fontSize: '0.9rem',
     marginBottom: '1.75rem',
+  },
+  feedbackSection: {
+    padding: '3rem 0 2rem 0',
+  },
+  feedbackWrapper: {
+    maxWidth: '750px',
+    margin: '0 auto',
+  },
+  feedbackCard: {
+    backgroundColor: '#111e3e',
+    borderRadius: '20px',
+    padding: '2.5rem',
+    border: '1px solid rgba(56, 189, 248, 0.35)',
+    boxShadow: '0 15px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(56, 189, 248, 0.1)',
+  },
+  feedbackHeader: {
+    textAlign: 'center',
+    marginBottom: '2rem',
+  },
+  feedbackTag: {
+    fontSize: '0.8rem',
+    fontWeight: '800',
+    color: '#38bdf8',
+    letterSpacing: '0.12em',
+  },
+  feedbackHeading: {
+    fontSize: '1.85rem',
+    fontWeight: '800',
+    color: '#ffffff',
+    marginTop: '0.35rem',
+    marginBottom: '0.5rem',
+  },
+  feedbackSub: {
+    color: '#94a3b8',
+    fontSize: '0.95rem',
+    lineHeight: '1.6',
+    maxWidth: '550px',
+    margin: '0 auto',
   },
   statusBox: {
     padding: '0.85rem 1rem',
