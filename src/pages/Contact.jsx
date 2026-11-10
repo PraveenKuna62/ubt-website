@@ -61,7 +61,7 @@ const Contact = () => {
               <div style={styles.formCard}>
                 <h3 style={styles.formHeading}>Feedback Form</h3>
                 <p style={styles.formSub}>
-                  We’d love to hear from you! Please share your name and comments below.
+                  We value your feedback please share your comments below.
                 </p>
 
                 {state.succeeded && (
