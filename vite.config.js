@@ -10,4 +10,3 @@ export default defineConfig({
     host: true, // Listen on all local IPs including WSL host access
   },
 })
-
