@@ -51,7 +51,7 @@ const Contact = () => {
                 <span style={styles.infoIcon}><FaInstagram size={24} color="#E4405F" /></span>
                 <div>
                   <h4 style={styles.cardHeader}>Official Handle</h4>
-                  <p style={styles.cardSub}>@universe_begin_tech (Instagram)</p>
+                  <p style={styles.cardSub}>@universebegintech (Instagram)</p>
                 </div>
               </div>
             </div>
@@ -59,9 +59,9 @@ const Contact = () => {
             {/* Formspree Form Col */}
             <div style={styles.formCol}>
               <div style={styles.formCard}>
-                <h3 style={styles.formHeading}>Inquiry Form</h3>
+                <h3 style={styles.formHeading}>Feedback Form</h3>
                 <p style={styles.formSub}>
-                  Fill out your details below to request a detailed syllabus and project proposal.
+                  We’d love to hear from you! Please share your name and comments below.
                 </p>
 
                 {state.succeeded && (
@@ -73,7 +73,7 @@ const Contact = () => {
                       color: '#4ade80',
                     }}
                   >
-                    Thank you for reaching out! Our academic partnerships team will contact you shortly.
+                    Thank you for your feedback! We appreciate you taking the time to share your thoughts.
                   </div>
                 )}
 
@@ -86,85 +86,32 @@ const Contact = () => {
                       color: '#f87171',
                     }}
                   >
-                    There was a problem submitting your inquiry. Please check the fields and try again.
+                    There was a problem submitting your feedback. Please try again.
                   </div>
                 )}
 
                 <form onSubmit={handleSubmit} style={styles.form}>
-                  <div style={styles.formRow}>
-                    <div style={styles.formGroup}>
-                      <label style={styles.label}>Name *</label>
-                      <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        required
-                        placeholder="Full Name"
-                        style={styles.input}
-                      />
-                      <ValidationError prefix="Name" field="name" errors={state.errors} style={styles.errorText} />
-                    </div>
-                    <div style={styles.formGroup}>
-                      <label style={styles.label}>Designation / Role</label>
-                      <input
-                        type="text"
-                        name="role"
-                        id="role"
-                        placeholder="Role"
-                        style={styles.input}
-                      />
-                      <ValidationError prefix="Role" field="role" errors={state.errors} style={styles.errorText} />
-                    </div>
-                  </div>
-
-                  <div style={styles.formRow}>
-                    <div style={styles.formGroup}>
-                      <label style={styles.label}>Email *</label>
-                      <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        required
-                        placeholder="abc@gmail.com"
-                        style={styles.input}
-                      />
-                      <ValidationError prefix="Email" field="email" errors={state.errors} style={styles.errorText} />
-                    </div>
-                    <div style={styles.formGroup}>
-                      <label style={styles.label}>Contact Phone *</label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        id="phone"
-                        required
-                        placeholder="9876543210"
-                        style={styles.input}
-                      />
-                      <ValidationError prefix="Phone" field="phone" errors={state.errors} style={styles.errorText} />
-                    </div>
+                  <div style={styles.formGroup}>
+                    <label style={styles.label}>Name *</label>
+                    <input
+                      type="text"
+                      name="name"
+                      id="name"
+                      required
+                      placeholder="Your Name"
+                      style={styles.input}
+                    />
+                    <ValidationError prefix="Name" field="name" errors={state.errors} style={styles.errorText} />
                   </div>
 
                   <div style={styles.formGroup}>
-                    <label style={styles.label}>Program of Interest</label>
-                    <select
-                      name="interest"
-                      id="interest"
-                      defaultValue="GenAI & Tech Bootcamps"
-                      style={styles.select}
-                    >
-                      <option value="GenAI & Tech Bootcamps">GenAI & Tech Bootcamps</option>
-                      <option value="Projects">Projects</option>
-                    </select>
-                    <ValidationError prefix="Interest" field="interest" errors={state.errors} style={styles.errorText} />
-                  </div>
-
-                  <div style={styles.formGroup}>
-                    <label style={styles.label}>Comments / Additional Requirements</label>
+                    <label style={styles.label}>Comments / Feedback *</label>
                     <textarea
                       name="comments"
                       id="comments"
-                      rows="4"
-                      placeholder="Write your comments, questions, or specific requirements here..."
+                      required
+                      rows="5"
+                      placeholder="Share your thoughts, suggestions, or comments here..."
                       style={styles.textarea}
                     ></textarea>
                     <ValidationError prefix="Comments" field="comments" errors={state.errors} style={styles.errorText} />
@@ -175,11 +122,11 @@ const Contact = () => {
                     disabled={state.submitting}
                     style={styles.submitBtn}
                   >
-                    {state.submitting ? 'Submitting Inquiry...' : 'Submit Inquiry'}
+                    {state.submitting ? 'Submitting...' : 'Submit Feedback'}
                   </button>
 
                   <p style={styles.formFooterNote}>
-                    🔒 Direct submission securely handled via Formspree. Your information remains strictly confidential.
+                    🔒 Direct submission securely handled via Formspree.
                   </p>
                 </form>
               </div>

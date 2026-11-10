@@ -325,6 +325,8 @@ const styles = {
   posterInfoCol: {
     display: 'flex',
     flexDirection: 'column',
+    alignItems: 'center',
+    textAlign: 'center',
     gap: '1.25rem',
   },
   sectionTag: {
@@ -348,6 +350,8 @@ const styles = {
   bulletList: {
     display: 'flex',
     flexDirection: 'column',
+    alignItems: 'center',
+    textAlign: 'center',
     gap: '0.75rem',
     margin: '0.5rem 0',
   },

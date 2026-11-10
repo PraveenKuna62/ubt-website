@@ -45,8 +45,8 @@ const Footer = () => {
 
           <div style={styles.linksCol}>
             <h4 style={styles.colTitle}>Connect</h4>
-            <a href="https://instagram.com/universe_begin_tech" target="_blank" rel="noreferrer" style={{ ...styles.link, display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-              <FaInstagram size={16} color="#E4405F" /> @universe_begin_tech
+            <a href="https://instagram.com/universebegintech" target="_blank" rel="noreferrer" style={{ ...styles.link, display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+              <FaInstagram size={16} color="#E4405F" /> @universebegintech
             </a>
             <a href="mailto:contact@universebegintech.com" style={{ ...styles.link, display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
               <FaEnvelope size={15} color="#38bdf8" /> contact@universebegintech.com
