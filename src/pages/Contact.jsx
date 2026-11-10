@@ -180,7 +180,6 @@ const Contact = () => {
                   </button>
 
                   <p style={styles.formFooterNote}>
-                    🔒 Direct submission securely handled via Formspree. Your information remains strictly confidential.
                   </p>
                 </form>
               </div>
@@ -189,16 +188,15 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Form 2: Feedback Form for Orientation & Student Engagement */}
+      {/* Form 2: Feedback Form */}
       <section style={styles.feedbackSection}>
         <div style={styles.container}>
           <div style={styles.feedbackWrapper}>
             <div style={styles.feedbackCard}>
               <div style={styles.feedbackHeader}>
-                <span style={styles.feedbackTag}>STUDENT ENGAGEMENT</span>
                 <h2 style={styles.feedbackHeading}>Feedback Form</h2>
                 <p style={styles.feedbackSub}>
-                  Attending our orientation session? We’d love to hear your feedback or thoughts! Simply share your name and comments below.
+                  We value your feedback. Please share your comments below.
                 </p>
               </div>
 
@@ -265,7 +263,6 @@ const Contact = () => {
                 </button>
 
                 <p style={styles.formFooterNote}>
-                  🔒 Fast & direct submission. No registration required.
                 </p>
               </form>
             </div>
