@@ -26,7 +26,7 @@ const Contact = () => {
             <div style={styles.infoCol}>
               <h2 style={styles.infoHeading}>Let's Build the Future Together</h2>
               <p style={styles.infoText}>
-                Whether you represent an institution looking for intensive tech boot camps or an organization establishing an experiential innovation lab, our team is ready to design a tailored program.
+                Whether you represent an organization looking for intensive tech boot camps or an organization establishing an experiential innovation lab, our team is ready to design a tailored program.
               </p>
 
               <div style={styles.infoCard}>
@@ -61,7 +61,7 @@ const Contact = () => {
               <div style={styles.formCard}>
                 <h3 style={styles.formHeading}>Inquiry Form</h3>
                 <p style={styles.formSub}>
-                  Fill out your institution's details below to request a detailed syllabus and proposal.
+                  Fill out your details below to request a detailed syllabus and project proposal.
                 </p>
 
                 {state.succeeded && (
@@ -159,15 +159,15 @@ const Contact = () => {
                   </div>
 
                   <div style={styles.formGroup}>
-                    <label style={styles.label}>Additional Requirements</label>
+                    <label style={styles.label}>Comments / Additional Requirements</label>
                     <textarea
-                      name="message"
-                      id="message"
+                      name="comments"
+                      id="comments"
                       rows="4"
-                      placeholder="Specify preferred dates, target branch, or specific learning outcomes..."
+                      placeholder="Write your comments, questions, or specific requirements here..."
                       style={styles.textarea}
                     ></textarea>
-                    <ValidationError prefix="Message" field="message" errors={state.errors} style={styles.errorText} />
+                    <ValidationError prefix="Comments" field="comments" errors={state.errors} style={styles.errorText} />
                   </div>
 
                   <button
